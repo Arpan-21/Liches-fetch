@@ -8,6 +8,7 @@ function UserProfile({ username }) {
     const fetchUserData = async () => {
       const response = await axios.get(`https://lichess.org/api/user/${username}`);
       setUserData(response.data);
+      console.log(response.data);
     };
 
     fetchUserData();
@@ -19,9 +20,8 @@ function UserProfile({ username }) {
 
   return (
     <div>
-      <h1>{userData.username}</h1>
-      <p>Rating: {userData.perfs.blitz.rating}</p>
-      {/* <p>Title: {userData.title}</p> */}
+      <h1>fetched UserName : {userData.username}</h1>
+      <p>Blitz Rating: {userData.perfs.blitz.rating}</p>
     </div>
   );
 }
